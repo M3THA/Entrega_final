@@ -11,9 +11,9 @@
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Login</h2>
 
  
+    <h2 class="page-top text-center text-uppercase text-secondary mb-5">{{ mensaje }}</h2>
 
-
-    <form  style="margin: auto; width: 220px;" action="" method="post" >
+    <form  style="margin: auto; width: 220px;" action="{% url 'login' %}" method="post" >
 
         {% csrf_token %}
 
