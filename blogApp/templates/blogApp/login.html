@@ -5,23 +5,25 @@
 
 {% block contenidoQueCambiara %}
 
-<section class="page-section portfolio" id="portfolio">
+<section  class="page-section portfolio" id="portfolio">
     <div class="container">
         <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Login</h2>
+
+ 
 
 
-<form action="" method="post">
+    <form  style="margin: auto; width: 220px;" action="" method="post" >
 
-    {% csrf_token %}
+        {% csrf_token %}
 
-    {{form.as_p}}
+        {{form.as_p}}
 
-    <button type="submit">Iniciar sesión</button>
+        <button type="submit">Iniciar sesión</button>
 
 
 
-</form>
+    </form>
 
 
 </section>
