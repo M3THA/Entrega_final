@@ -1,0 +1,31 @@
+{% extends "blogApp/padre.html" %}
+
+
+{% load static %}
+
+{% block contenidoQueCambiara %}
+
+
+<!-- <section  class="page-section portfolio" id="portfolio">
+    <div class="container">
+        
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Registro</h2>
+
+ 
+    <h2 class="page-top text-center text-uppercase text-secondary mb-5">{{ mensaje }}</h2> -->
+
+    <h2>{{ mensaje }}</h2>
+
+    <form  style="margin: auto; width: 220px;" action="{% url 'registro' %}" method="post" >
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit">Registrate</button>
+
+
+
+    </form>
+
+{% endblock %}

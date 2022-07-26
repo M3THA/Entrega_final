@@ -22,10 +22,10 @@ def login_usuario(request):
 
         if form.is_valid:
 
-            usuario= request.POST['nombre']
-            contrasena= request.POST['clave']
+            usuario= request.POST['username']
+            contrasena= request.POST['password']
 
-            user= authenticate(nombre=usuario, clave=contrasena) 
+            user= authenticate(username=usuario, password=contrasena) 
 
             if user is not None:
 
@@ -52,14 +52,14 @@ def registro(request):
 
     if request.method == 'POST':
 
-        form= UserCreationForm(request, data=request.POST)
+        form= UserCreationForm(request.POST)
 
         if form.is_valid():
 
-            usuario= request.POST['usuario']
+            username= form.cleaned_data['username']
 
             form.save()
-            return render(request, "blogApp/inicio.html", {'form':form, 'mensaje':f"Usuario creado: {usuario}"} )
+            return render(request, "blogApp/inicio.html", {'form':form, 'mensaje':f"Usuario creado: {username}"} )
 
     else:
         form= UserCreationForm()
