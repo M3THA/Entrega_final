@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ProyectoBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/ori/Documentos/Entrega_final/blogApp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

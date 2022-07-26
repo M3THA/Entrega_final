@@ -1,7 +1,7 @@
 import re
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
 
@@ -15,14 +15,17 @@ def inicio(request):
 #Vista de login
 
 def login_usuario(request):
-    if request.method == "POST":
+
+    if request.method == 'POST':
+
         form = AuthenticationForm(request, data= request.POST)
+
         if form.is_valid:
 
-            usuario= request.POST['username']
-            contrasena= request.POST['password']
+            usuario= request.POST['nombre']
+            contrasena= request.POST['clave']
 
-            user= authenticate(username=usuario, password=contrasena) 
+            user= authenticate(nombre=usuario, clave=contrasena) 
 
             if user is not None:
 
@@ -45,7 +48,20 @@ def login_usuario(request):
 
 # Vista de registro
 
-#def registro(request):
-    if request.method =="POST":
+def registro(request):
 
-        form= UserCre
+    if request.method == 'POST':
+
+        form= UserCreationForm(request, data=request.POST)
+
+        if form.is_valid():
+
+            usuario= request.POST['usuario']
+
+            form.save()
+            return render(request, "blogApp/inicio.html", {'form':form, 'mensaje':f"Usuario creado: {usuario}"} )
+
+    else:
+        form= UserCreationForm()
+
+    return render(request,'blogApp/registro.html', {'form': form} )
