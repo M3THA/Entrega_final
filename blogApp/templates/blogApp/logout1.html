@@ -2,9 +2,21 @@
 
 {% load static %}
 
+
+
+
 {% block mensajeLogin %}
 
 <h2 class="page-top text-center text-uppercase text-secondary mb-5">{{ mensaje }}</h2>
+
+
+
+
+<a class="btn btn-primary d-grid gap-2 col-2 mx-auto" id="negativo" href="{% url 'logout' %}" role="button">LOGOUT</a>
+
+
+
+
 
 {% endblock %}
 

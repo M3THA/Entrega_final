@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
+from blogApp.forms import User_register_form
+
 
 
 
@@ -31,11 +33,12 @@ def login_usuario(request):
 
                 login(request, user)
 
-                return render(request, "blogApp/inicio.html", {'mensaje':f"Inicio de sesion exitosa {usuario}"} )
+                return render(request, "blogApp/logout1.html", {'mensaje':f"Inicio de sesion exitosa {usuario}"} )
             else: 
                 
                 return render(request, "blogApp/login.html", {'form': form,  'mensaje': f"Error, datos incorrectos"} )
-
+                
+            
         else:
             
             return render(request, "blogApp/inicio.html", {'mensaje': "Error, formulario erroneo"} )
@@ -52,7 +55,7 @@ def registro(request):
 
     if request.method == 'POST':
 
-        form= UserCreationForm(request.POST)
+        form= User_register_form(request.POST)
 
         if form.is_valid():
 
@@ -62,6 +65,6 @@ def registro(request):
             return render(request, "blogApp/inicio.html", {'form':form, 'mensaje':f"Usuario creado: {username}"} )
 
     else:
-        form= UserCreationForm()
+        form= User_register_form()
 
     return render(request,'blogApp/registro.html', {'form': form} )
