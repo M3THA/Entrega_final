@@ -3,29 +3,40 @@
 
 {% load static %}
 
+
+
+
 {% block contenidoQueCambiara %}
 
-<section  class="page-section portfolio" id="portfolio">
-    <div class="container">
-        <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Login</h2>
 
- 
-    <h2 class="page-top text-center text-uppercase text-secondary mb-5">{{ mensaje }}</h2>
+    <section  class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-5">Login</h2>
 
-    <form  style="margin: auto; width: 220px;" action="{% url 'login' %}" method="post" >
+    
+        <h2 class="page-top text-center text-uppercase text-secondary mb-5">{{ mensaje }}</h2>
 
-        {% csrf_token %}
+        <form  style="margin: auto; width: 220px;" action="{% url 'login' %}" method="post" >
 
-        {{form.as_p}}
+            {% csrf_token %}
 
-        <button type="submit">Iniciar sesión</button>
+            {{form.as_p}}
 
-
-
-    </form>
+            <button type="submit">Iniciar sesión</button>
 
 
-</section>
+
+        </form>
+
+        
+        
+
+    
+        
+
+
+
+    </section>
 
 {% endblock %}
