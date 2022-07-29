@@ -21,6 +21,7 @@ from blogApp.views import inicio
 urlpatterns = [
     path('', inicio),
     path('admin/', admin.site.urls),
+    path('ckeditor', include('ckeditor_uploader.urls')),
     path('App/', include('blogApp.urls')),
     
 ]

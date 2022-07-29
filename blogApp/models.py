@@ -2,13 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 #ckeditor para poder editar post
-from ckeditor.fields import RichTextField
+#from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class blog_post(models.Model):
     titulo= models.CharField(max_length=200, blank=True, null=True)
     subtítulo= models.TextField()
-    cuerpo= RichTextField(blank=True, null=True)
+    cuerpo= RichTextUploadingField(blank=True, null=True)
     autor= models.CharField(max_length=20)
     fecha= models.DateField()
     imagen= models.ImageField(upload_to='media')
