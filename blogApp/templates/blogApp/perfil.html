@@ -1,0 +1,26 @@
+{% extends "blogApp/padre.html" %}
+
+{% load static %}
+
+{% block header %}
+<h3>Perfil de {{request.user.username}}</h3>
+<img src="{{image_url}}" alt="Imagen" width="25%">
+{% endblock %}
+
+{% block contenidoQueCambiara %}
+
+
+
+<div class="w3-card-4 w3-center">
+    <h4>
+        <ul>
+            <ol>Nombre: {{user.first_name}}</ol>
+            <ol>Apellido: {{user.last_name}}</ol>
+            <ol>Email: {{user.email}}</ol>
+            <ol>Ultimo ingreso: {{user.last_login}}</ol>
+        <ol>Te uniste: {{user.date_joined}}</ol>
+    </ul>
+    </h4>
+</div>
+
+{% endblock %}

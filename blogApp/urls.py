@@ -13,6 +13,8 @@ urlpatterns = [
    path('registro/', views.registro, name= 'registro'),
    path('logout/', LogoutView.as_view(template_name= 'blogApp/logout.html'), name= 'logout'),
    path('editarPerfil/', views.editar_perfil, name= 'editarPerfil'),
+   path('perfil/', views.perfil, name="perfil"),
+   path('upload_avatar/', upload_avatar, name="upload_avatar"),
 
 
 
