@@ -3,10 +3,13 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from requests import post
 
 from blogApp.forms import User_register_form, User_edit_form
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
 
+from .models import blog_post
 
 
 
@@ -92,3 +95,4 @@ def editar_perfil(request):
     else:
         formulario= User_edit_form(instance=usuario)
     return render (request, 'blogApp/editarPerfil.html', {'formulario':formulario, 'usuario':usuario.username})
+

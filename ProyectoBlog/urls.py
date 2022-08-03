@@ -16,7 +16,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from blogApp.views import inicio
+from blogApp.views import *
+
+# 
 
 urlpatterns = [
     path('', inicio),
