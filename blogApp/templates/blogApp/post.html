@@ -10,28 +10,34 @@
 
             <!--contenido titulo y subtitulo-->
             <div class="text-center mt-8"> 
-                <h2>titulo</h2> 
-                <p>fecha</p>
+                <h2>{{blog_post.titulo}}</h2> 
+                
+                <!--Conversor de dato fecha en inglés al español-->
+                {% load i18n %}
+                {% language 'es' %}
+                <p>{{blog_post.fecha}}</p>
+                {% endlanguage %}
+
             </div>      
             
            <!-- #contenido imagen-->
+           
             <div class="text-center mt-8"> 
-                <img src="" alt="" class="rounded md">
+                <img src="{{blog_post.imagen.url}}" alt="" class="rounded-md ">
             </div>  
+            
 
             <!-- #contenido cuerpo-->
             <div class="post-content row mt-5">
                 <div class="col-lg-8 mx-auto">
+                    <div> 
+                        {{blog_post.subtitulo|safe}}
+                    </div>
+                    <div> 
+                        {{blog_post.cuerpo|safe}}
+                    </div>
 
-                    <h2 class "fontsize 20"><b> Overview </b></h2>
-                    <p class="lead"> 
-                        subtitulos
-                    </p>
-                    <hr class="w-100px">
-                    <h3 class="fon-size-20"><h>contenido del post.</h></h3>
-                    <p>
-                    La cocina más tradicional italiana es un ejemplo de cómo la sencillez no está reñinda con el sabor o el disfrute. Un buen plato de pasta no tiene por qué llevar miles de ingredientes, a veces solo hacen falta dos o tres componentes para obtener resultados de lujo. Con mantequilla tostada y queso parmesano, esta receta de pasta se convierte en un clásico al que volver con frecuencia.
-                    </p>
+
                 </div>
             </div>
 

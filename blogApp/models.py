@@ -19,12 +19,11 @@ class Autor(models.Model):
 class Blog_post(models.Model):
     titulo= models.CharField(max_length=50, blank=True, null=True)
     slug= AutoSlugField(populate_from= 'titulo')
-    subtítulo= models.TextField(max_length=70, blank=True, null=True)
+    subtitulo= models.TextField(max_length=70, blank=True, null=True)
     cuerpo= RichTextUploadingField(blank=True, null=True)
     autor= models.CharField(max_length=20)
     fecha= models.DateField(auto_now_add= True)
     imagen= models.ImageField(upload_to='media')
-    thumbnail= models.ImageField(upload_to='media', null=True, blank=True)
 
     def __str__(self):
         return f"Título: {self.titulo}  - Autor {self.autor} - Fecha {self.fecha}"
