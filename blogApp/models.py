@@ -16,9 +16,9 @@ class Autor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     imagen_perfil= models.ImageField(upload_to="media")
 
-class blog_post(models.Model):
+class Blog_post(models.Model):
     titulo= models.CharField(max_length=50, blank=True, null=True)
-    slug= AutoSlugField(populate_from= 'titulo', null=True)
+    slug= AutoSlugField(populate_from= 'titulo')
     subtítulo= models.TextField(max_length=70, blank=True, null=True)
     cuerpo= RichTextUploadingField(blank=True, null=True)
     autor= models.CharField(max_length=20)

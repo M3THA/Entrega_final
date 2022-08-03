@@ -3,8 +3,6 @@ from blogApp import views
 from blogApp.views import *
 from django.contrib.auth.views import LogoutView
 
-#class en view para pages (modo distinto para listar posts)
-from .views import blog_post
 
 urlpatterns = [
    
@@ -18,7 +16,7 @@ urlpatterns = [
    path('editarPerfil/', views.editar_perfil, name= 'editarPerfil'),
    
    #url tipo class para listar pages
-   
+   path('<slug>', Post_detalle.as_view(), name='post')
 
 
 ]

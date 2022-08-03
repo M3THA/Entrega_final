@@ -9,7 +9,7 @@ from blogApp.forms import User_register_form, User_edit_form
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 
-from .models import blog_post
+from .models import *
 
 
 
@@ -96,3 +96,11 @@ def editar_perfil(request):
         formulario= User_edit_form(instance=usuario)
     return render (request, 'blogApp/editarPerfil.html', {'formulario':formulario, 'usuario':usuario.username})
 
+#def vista_post(request):
+    
+    #return render(request, "blogApp/post.html")
+ 
+class Post_detalle(DetailView):
+    model= Blog_post
+    template_name= "blogApp/post.html"
+    slug_field= "slug"
