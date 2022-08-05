@@ -1,15 +1,17 @@
 
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from requests import post
 
 from blogApp.forms import User_register_form, User_edit_form
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from .models import *
+
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 
@@ -96,6 +98,21 @@ def editar_perfil(request):
         formulario= User_edit_form(instance=usuario)
     return render (request, 'blogApp/editarPerfil.html', {'formulario':formulario, 'usuario':usuario.username})
 
+
+#Función para pages, con paginador 
+def pages(request):
+    posteos= Blog_post.objects.all()
+    page= request.GET.get("page")
+    paginator=Paginator(posteos, 2)
+    try:
+        posteos= paginator.page(page)
+    except PageNotAnInteger:
+        posteos= paginator.page(1)
+    except EmptyPage:
+        posteos= paginator.page(paginator.num_pages)
+
+    return render(request, "blogApp/pages.html", {'posteos':posteos}, )
+
 #def vista_post(request):
     
     #return render(request, "blogApp/post.html")
@@ -104,3 +121,9 @@ class Post_detalle(DetailView):
     model= Blog_post
     template_name= "blogApp/post.html"
     slug_field= "slug"
+
+
+class Crear_post(CreateView):
+    model= Blog_post
+    template_name= 'blogApp/crear_post.html'
+    fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']

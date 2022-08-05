@@ -6,4 +6,37 @@
 
 {% block contenidoQueCambiara %}
 
+<main class="main-content">
+  <div class="section bg-gray">
+      <div class="container">
+          <div class="row">   
+            <div class="col-md-8 col-xl-9">
+              <div class="row gap-y">
+                  <div class="col-md-6">
+                    {% for post in posteos %}
+                      <div class="card border hover-shadow-6 mb-6 d-block">
+                        <a href="#"><img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap"></a>
+                        <div class="p-6 text-center">
+                          <h5 class="mb-0"><a class="text-dark" href="{{post.blog_post_link}}">{{post.titulo}}</a></h5>
+                        </div>
+                      </div>
+                      {% empty %}
+                        <div class="p-6 text-center">
+                          <h2>No hay páginas aún</h2>
+                        </div>
+                    {% endfor %}
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="p-6 text-center">
+  {% include 'blogApp/paginador.html' %}
+  </div>
+</main>
 {% endblock %}

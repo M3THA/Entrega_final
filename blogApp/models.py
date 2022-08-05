@@ -10,6 +10,9 @@ from autoslug import AutoSlugField
 #para asignar al usuario como autor del post
 from django.contrib.auth import get_user_model
 
+#para asignar el slug al post en pages
+from django.urls import reverse
+
 User= get_user_model()
 
 class Autor(models.Model):
@@ -23,8 +26,18 @@ class Blog_post(models.Model):
     cuerpo= RichTextUploadingField(blank=True, null=True)
     autor= models.CharField(max_length=20)
     fecha= models.DateField(auto_now_add= True)
-    imagen= models.ImageField(upload_to='media')
+    imagen= models.ImageField(verbose_name='imagen', upload_to='media', null=True, blank=True)
 
     def __str__(self):
         return f"Título: {self.titulo}  - Autor {self.autor} - Fecha {self.fecha}"
+    
+    def get_absolute_url(self):
+        return reverse("post", kwargs={
+            'slug': self.slug
+        })
 
+    @property
+    def blog_post_link(self):
+        return reverse("post", kwargs={
+            'slug': self.slug
+        })
