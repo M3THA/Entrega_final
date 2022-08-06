@@ -15,9 +15,10 @@
                   <div class="col-md-6">
                     {% for post in posteos %}
                       <div class="card border hover-shadow-6 mb-6 d-block">
-                        <a href="#"><img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap"></a>
+                        <a href="{% url 'post' post.slug %}"><img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap"></a>
                         <div class="p-6 text-center">
                           <h5 class="mb-0"><a class="text-dark" href="{{post.blog_post_link}}">{{post.titulo}}</a></h5>
+                          <h6 class="mb-0"><a class="text-dark" href="{% url 'editar_post' post.slug %}">Editar</a></h6>
                         </div>
                       </div>
                       {% empty %}

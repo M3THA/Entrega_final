@@ -22,7 +22,7 @@ class Autor(models.Model):
 class Blog_post(models.Model):
     titulo= models.CharField(max_length=50, blank=True, null=True)
     slug= AutoSlugField(populate_from= 'titulo')
-    subtitulo= models.TextField(max_length=70, blank=True, null=True)
+    subtitulo= models.TextField(max_length=50, blank=True, null=True)
     cuerpo= RichTextUploadingField(blank=True, null=True)
     autor= models.CharField(max_length=20)
     fecha= models.DateField(auto_now_add= True)

@@ -22,4 +22,6 @@ urlpatterns = [
    #url para crear posts
    path('crear_post/', Crear_post.as_view(), name='crear_post'),
    
+   path('editar_post/<slug>', Editar_post.as_view(), name='editar_post'),
+   
 ]

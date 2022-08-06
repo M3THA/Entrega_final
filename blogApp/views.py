@@ -7,7 +7,7 @@ from requests import post
 
 from blogApp.forms import User_register_form, User_edit_form
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import *
 
@@ -127,3 +127,10 @@ class Crear_post(CreateView):
     model= Blog_post
     template_name= 'blogApp/crear_post.html'
     fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
+
+class Editar_post(UpdateView):
+    model= Blog_post
+    template_name= 'blogApp/editar_post.html'
+    fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
+
+    
