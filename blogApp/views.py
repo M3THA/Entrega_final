@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from requests import post
 
-from blogApp.forms import User_register_form, User_edit_form
+from blogApp.forms import User_register_form, User_edit_form, Crear_form
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -126,14 +126,14 @@ class Post_detalle(DetailView):
 
 class Crear_post(CreateView):
     model= Blog_post
+    form_class= Crear_form
     template_name= 'blogApp/crear_post.html'
-    fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
 
 class Editar_post(UpdateView):
     model= Blog_post
     template_name= 'blogApp/editar_post.html'
-    fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
-
+    form_class= Crear_form
+    
 class Eliminar_post(DeleteView):
     model= Blog_post
     template_name= 'blogApp/borrar_post.html'

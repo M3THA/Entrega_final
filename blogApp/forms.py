@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from blogApp.models import Blog_post
 
 
 
@@ -31,3 +32,16 @@ class User_edit_form(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'last_name','first_name' ]
         help_texts = {k:"" for k in fields} 
+
+class Crear_form(forms.ModelForm):
+    class Meta:
+        model= Blog_post
+        fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
+
+        widgets= {
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
+            'autor': forms.Select(attrs={'class': 'form-control'}),
+            'imagen': forms.FileInput(attrs={'class': 'form-control'}),
+        }
