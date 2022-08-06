@@ -7,12 +7,13 @@ from requests import post
 
 from blogApp.forms import User_register_form, User_edit_form
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .models import *
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
+from django.urls import reverse_lazy
 
 
 
@@ -133,4 +134,7 @@ class Editar_post(UpdateView):
     template_name= 'blogApp/editar_post.html'
     fields= ['titulo', 'subtitulo','cuerpo','autor', 'imagen']
 
-    
+class Eliminar_post(DeleteView):
+    model= Blog_post
+    template_name= 'blogApp/borrar_post.html'
+    success_url= reverse_lazy('pages')
