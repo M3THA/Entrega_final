@@ -1,0 +1,21 @@
+{% extends "blogApp/padre.html" %}
+
+
+{% load static %}
+
+
+{% block contenidoQueCambiara %}
+
+
+<br></br>
+<h1> Editar Post:... </h1>
+<div class="form-group">
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token  %}
+            {{ form.media }}
+            {{ form.as_p }}
+
+        <button>Editar</button>
+    </form>
+</div>
+{% endblock %}
