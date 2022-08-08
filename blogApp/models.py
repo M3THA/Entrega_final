@@ -45,3 +45,6 @@ class Blog_post(models.Model):
         return reverse("post", kwargs={
             'slug': self.slug
         })
+
+    def total_likes(self):
+        return self.likes.count()

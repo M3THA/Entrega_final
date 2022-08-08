@@ -1,4 +1,5 @@
 
+from nntplib import ArticleInfo
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -124,6 +125,13 @@ class Post_detalle(DetailView):
     slug_field= "slug"
 
 
+def Like_view(request, pk):
+    post= get_object_or_404(Blog_post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    titulo= post.slug
+    return HttpResponseRedirect(reverse('post', args=[titulo]))
+
+
 class Crear_post(CreateView):
     model= Blog_post
     form_class= Crear_form
@@ -139,8 +147,5 @@ class Eliminar_post(DeleteView):
     template_name= 'blogApp/borrar_post.html'
     success_url= reverse_lazy('pages')
 
-def Like_view(request, pk):
-    post= get_object_or_404(Blog_post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
-    titulo= post.slug
-    return HttpResponseRedirect(reverse('post', args=[titulo]))
+
+
