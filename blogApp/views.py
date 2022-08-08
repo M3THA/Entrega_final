@@ -1,5 +1,5 @@
 
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -138,3 +138,10 @@ class Eliminar_post(DeleteView):
     model= Blog_post
     template_name= 'blogApp/borrar_post.html'
     success_url= reverse_lazy('pages')
+
+def LikeView(request, pk):
+    post= get_object_or_404(Blog_post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    titulo= post.titulo
+    
+    return HttpResponseRedirect(reverse('post', args=[str(titulo.lower())]))

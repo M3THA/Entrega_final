@@ -30,6 +30,7 @@ class Blog_post(models.Model):
     autor= models.ForeignKey(User, null=True, default=None, on_delete=models.CASCADE)
     fecha= models.DateField(auto_now_add= True)
     imagen= models.ImageField(verbose_name='imagen', upload_to='media', null=True, blank=True)
+    likes= models.ManyToManyField(User, related_name="post_like")
 
     def __str__(self):
         return f"Título: {self.titulo}  - Autor {self.autor} - Fecha {self.fecha}"

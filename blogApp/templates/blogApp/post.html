@@ -10,7 +10,8 @@
 
             <!--contenido titulo y subtitulo-->
             <div class="text-center mt-8"> 
-                <h2>{{blog_post.titulo}}</h2> 
+                
+                <h2>{{blog_post.titulo}}</h2>
                 
                 <!--Conversor de dato fecha en inglés al español-->
                 {% load i18n %}
@@ -39,11 +40,15 @@
                     <div> 
                         {{blog_post.cuerpo|safe}}
                     </div>
-
+                    <form action="{% url 'like_post' blog_post.pk %}" method="POST">
+                        {% csrf_token  %}
+                        <button type="submit", name="post_id", value="{{ blog_post.id }}", class="btn bt-primary btn-sm">Like!</button>
+                    <form>
 
                 </div>
             </div>
-
+            
+                
             </div>
         </div>  
     </div>
