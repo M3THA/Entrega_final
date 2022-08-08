@@ -139,9 +139,8 @@ class Eliminar_post(DeleteView):
     template_name= 'blogApp/borrar_post.html'
     success_url= reverse_lazy('pages')
 
-def LikeView(request, pk):
+def Like_view(request, pk):
     post= get_object_or_404(Blog_post, id=request.POST.get('post_id'))
     post.likes.add(request.user)
-    titulo= post.titulo
-    
-    return HttpResponseRedirect(reverse('post', args=[str(titulo.lower())]))
+    titulo= post.slug
+    return HttpResponseRedirect(reverse('post', args=[titulo]))

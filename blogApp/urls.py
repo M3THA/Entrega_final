@@ -27,6 +27,6 @@ urlpatterns = [
    path('<slug>/eliminar', Eliminar_post.as_view(), name='eliminar_post'),
 
    #Like para posts
-   path('like/<int:pk>', views.LikeView, name="like_post")
+   path('like/<int:pk>', views.Like_view, name="like_post")
 
 ]
