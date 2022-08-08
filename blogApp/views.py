@@ -7,7 +7,7 @@ from requests import post
 
 from blogApp.forms import User_register_form, User_edit_form, Crear_form
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 
 from .models import *
 
