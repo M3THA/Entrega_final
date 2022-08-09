@@ -7,8 +7,10 @@
 
 
 {% block contenidoQueCambiara %}
+
+{% if user.is_authenticated %}
 <br></br>
-<h1> Crear Post:... </h1>
+<h1> Crear Post: </h1>
 <form enctype="multipart/form-data" method="POST">
     {% csrf_token  %}
         {{ form.media }}
@@ -16,4 +18,6 @@
 
     <button>Crear</button>
 </form>
+{% endif %}
+
 {% endblock %}

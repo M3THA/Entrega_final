@@ -20,7 +20,7 @@
                   <div class="col-md-6">
                     {% for post in posteos %}
                       <div class="card border hover-shadow-6 mb-6 d-block">
-                        <img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{post.imagen.url}}" >
                         <div class="p-6 text-center">
                           <h5 class="mb-0"><a class="text-dark">{{post.titulo}}</a></h5>
                           {% if user.is_authenticated %}
@@ -32,7 +32,7 @@
 
                           
                           <p class="font-weight-light" href="{{post.blog_post_link}}">{{post.cuerpo|truncatechars:100|safe}}</p>
-                          <a  href="{% url 'post' post.slug %}">Leer más...</a>
+                          <a  href="{% url 'post' post.slug %}">Leer más...</a> 
                         </div>  
                         
                       </div>

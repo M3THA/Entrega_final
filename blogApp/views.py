@@ -147,7 +147,7 @@ def upload_avatar(request):
                 avatar = Avatar(user=usuario, imagen=formulario.cleaned_data["imagen"])
                 avatar.save()
             
-        return redirect("inicio")
+        return redirect("perfil")
     else:
 
         formulario = AvatarForm()

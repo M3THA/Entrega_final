@@ -2,14 +2,21 @@
 
 {% load static %}
 
-{% block titulo_pagina %}
-<h1 class="masthead-heading text-uppercase mb-0">Perfil</h1>
-{% endblock %}
 
-{% block header %}
-<h3>Perfil de {{request.user.username}}</h3>
-<img src="{{image_url}}" alt="Imagen" width="25%">
-<a style="color: black;" href="{% url 'upload_avatar' %}">Para modificar avatar ingrese aqui</a>
+
+
+{% block titulo_pagina %}
+<h3 class="masthead-heading text-uppercase mb-0">Perfil de {{request.user.username}}</h3>
+<img src="{{image_url}}" alt="Imagen" class="rounded-circle" style="max-width:250px;width:100%">
+<a style="color: black;" href="{% url 'upload_avatar' %}">Editar foto</a>
+
+<h3 class="font-weight-bold" style="margin:0%">Datos de perfil</h3>
+
+<h6 class="font-weight-bold" style="margin:0%">Nombre: {{user.first_name}}</h6>
+<h6 class="font-weight-bold" style="margin:0%">Apellido: {{user.last_name}}</h6>
+<h6 class="font-weight-bold" style="margin:0%">Email: {{user.email}}</h6>
+<h6 class="font-weight-bold" style="margin:0%">Ultimo ingreso: {{user.last_login}}</h6>
+<h6 class="font-weight-bold" style="margin:0%">Te uniste: {{user.date_joined}}</h6>
 {% endblock %}
 
 {% block contenidoQueCambiara %}
@@ -17,16 +24,6 @@
 
 <!--Informacion del usuario
 -->
-<div class="w3-card-4 w3-center">
-    <h4>
-        <ul>
-            <ol>Nombre: {{user.first_name}}</ol>
-            <ol>Apellido: {{user.last_name}}</ol>
-            <ol>Email: {{user.email}}</ol>
-            <ol>Ultimo ingreso: {{user.last_login}}</ol>
-        <ol>Te uniste: {{user.date_joined}}</ol>
-    </ul>
-    </h4>
-</div>
+
 
 {% endblock %}
