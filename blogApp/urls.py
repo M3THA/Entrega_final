@@ -23,7 +23,7 @@ urlpatterns = [
 
    
    path('pages/', views.pages, name= 'pages'),
-   path('about/', views.pages, name= 'about'),
+   path('about/', views.about, name= 'about'),
    
 
    #url para CRUD posteos

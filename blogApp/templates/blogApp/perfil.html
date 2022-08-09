@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block titulo_pagina %}
+<h1 class="masthead-heading text-uppercase mb-0">Perfil</h1>
+{% endblock %}
+
 {% block header %}
 <h3>Perfil de {{request.user.username}}</h3>
 <img src="{{image_url}}" alt="Imagen" width="25%">

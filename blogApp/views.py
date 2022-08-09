@@ -158,7 +158,7 @@ def upload_avatar(request):
 
 def about(request):
 
-    return render(request, 'blogApp/about.html', {"title": "Acerca de este blog"})
+    return render(request, 'blogApp/about.html')
 
 
 class PasswordsChangeView(PasswordChangeView):
