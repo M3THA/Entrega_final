@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>FooderHouse</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -73,8 +73,13 @@
                 </div>
                 <!-- Masthead Subheading-->
                 {% url 'inicio' as la_url %}
-                {% if request.path == la_url %}
-                <p class="masthead-subheading font-weight-light mb-0">Viajes con historias gastronomicas</p>
+
+                    {% if request.path == la_url %}
+                        <p class="masthead-subheading font-weight-light mb-0">Viajes con historias gastronomicas</p>
+                    {% elif request.path == '/'%}
+                        <p class="masthead-subheading font-weight-light mb-0">Viajes con historias gastronomicas</p>
+                    {% else %}
+
                 {% endif %}
                 {% block subtitulo %}
                 {% endblock %}
