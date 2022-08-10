@@ -1,3 +1,4 @@
+
 {% extends "blogApp/padre.html" %}
 
 
@@ -6,18 +7,21 @@
 
 
 
-{% block contenidoQueCambiara %}
+{% block titulo_pagina %}
 
 {% if user.is_authenticated %}
-<br></br>
-<h1> Crear Post: </h1>
-<form enctype="multipart/form-data" method="POST">
-    {% csrf_token  %}
-        {{ form.media }}
-        {{ form.as_p }}
+  
+    <br></br>
+    <h1>CREAR POST</h1>
+    <br></br>
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token  %}
+            {{ form.media }}
+            {{ form.as_p }}
 
-    <button>Crear</button>
-</form>
-{% endif %}
+        <button class="btn btn-secondary">Crear</button>
+    </form>
+
+    {% endif %}
 
 {% endblock %}

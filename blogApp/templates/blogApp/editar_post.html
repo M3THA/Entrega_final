@@ -3,19 +3,20 @@
 
 {% load static %}
 
+{% block titulo_pagina %}
+<section >
+    <div class="container">
+    <br></br>
+        <h1> EDITAR POST </h1>
+        <div class="form-group">
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token  %}
+                    {{ form.media }}
+                    {{ form.as_p }}
 
-{% block contenidoQueCambiara %}
-
-
-<br></br>
-<h1> Editar Post:... </h1>
-<div class="form-group">
-    <form enctype="multipart/form-data" method="POST">
-        {% csrf_token  %}
-            {{ form.media }}
-            {{ form.as_p }}
-
-        <button>Editar</button>
-    </form>
-</div>
+                <button class="btn btn-secondary">Editar</button>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}

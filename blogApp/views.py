@@ -47,7 +47,7 @@ def login_usuario(request):
                 login(request, user)
                 
 
-                return render(request, "blogApp/inicio.html", {'mensaje':f"Inicio de sesion exitosa {usuario}"} )
+                return render(request, "blogApp/inicio_exito.html", {'mensaje':f"te has logueado {usuario}"} )
             else: 
                 
                 return render(request, "blogApp/login.html", {'form': form,  'mensaje': f"Error, datos incorrectos"} )

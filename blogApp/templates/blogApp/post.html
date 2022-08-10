@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block  titulo_pagina %}
+<h1>POST</h1>
+{% endblock %}
+
 {% block contenidoQueCambiara %}
 
 <main class="main-content">
@@ -10,7 +14,7 @@
 
             <!--contenido titulo y subtitulo-->
             <div class="text-center mt-8"> 
-                
+                <br></br>
                 <h2>{{blog_post.titulo}}</h2>
                 
                 <!--Conversor de dato fecha en inglés al español-->
@@ -45,7 +49,7 @@
                 
                 </div>
             </div>
-            <div align="right">
+            <div align="center">
                 <form action="{% url 'like_post' blog_post.pk %}" method="POST">
                     {% csrf_token  %}
                     {% if user.is_authenticated %}

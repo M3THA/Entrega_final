@@ -4,7 +4,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-{% block contenidoQueCambiara %}
+{% block titulo_pagina %}
 
 
     <section  class="page-section portfolio" id="portfolio">
@@ -34,12 +34,12 @@
                     <div class="container mt-5">
                         <p>
                             ¿No estás registradx?
-                            <a href="{% url 'registro' %}">Regístrate aquí</a>
+                            <a class="text-white" href="{% url 'registro' %}">Regístrate aquí</a>
                         </p>
                     </div>
             
                     <div class="container mt-5">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-secondary">
                             <span class="glyphicon glyphicon-ok"></span>Iniciar sesión
                         </button>
                         <a href="{% url 'inicio' %}" class="btn btn-default">Cancelar</a>
