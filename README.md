@@ -45,8 +45,8 @@ Readme.
 
 Una vez inicializada la aplicación, tendrás disponible para visitar la url de [Inicio](http://127.0.0.1:8000/) y navegar dentro de las distintas páginas disponibles actualmente.
 
-<<<<<<< HEAD
 Para detener la aplicación, utilizar CTRL+C.
-=======
-Para detener la aplicación, utilizar CTRL+C.
->>>>>>> c8d5ac37ea67866486307d5ab7b3b8f9c4a70b3f
+
+## Vídeo de prueba
+
+Cick [acá]  para ver una desmotración de la página en funcionamiento.
