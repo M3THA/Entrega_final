@@ -44,20 +44,18 @@
                     <div> 
                         {{blog_post.cuerpo|safe}}
                     </div>
-                    
-                    <form>
-                
+                    <div align="center">
+                        <form action="{% url 'like_post' blog_post.pk %}" method="POST">
+                            {% csrf_token  %}
+                            {% if user.is_authenticated %}
+                            <button type="submit", name="post_id", value="{{ blog_post.id }}", class="btn btn-primary">¡Like! (Total: {{ blog_post.total_likes }}) </button>
+                            {% endif %}
+                            <br></br>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div align="center">
-                <form action="{% url 'like_post' blog_post.pk %}" method="POST">
-                    {% csrf_token  %}
-                    {% if user.is_authenticated %}
-                    <button type="submit", name="post_id", value="{{ blog_post.id }}", class="btn btn-primary">¡Like! (Total: {{ blog_post.total_likes }}) </button>
-                    {% endif %}
-                    <br></br>
-                </div>
-            </div>
+            
         </div>  
     </div>
 
