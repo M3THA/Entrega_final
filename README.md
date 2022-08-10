@@ -49,4 +49,7 @@ Para detener la aplicación, utilizar CTRL+C.
 
 ## Vídeo de prueba
 
-Cick [acá]  para ver una desmotración de la página en funcionamiento.
+Cick [acá][1] para ver una desmotración de la página en funcionamiento.
+
+
+[1]: https://www.youtube.com/watch?v=HkcckH1KV5Y    "acá"
